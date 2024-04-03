@@ -88,10 +88,37 @@
     <div class="form-group">
       <button type="submit">Login</button>
     </div>
+    <span id="error-message" style="color: red; display: none;"></span>
   </form>
   <div class="create-account">
     <p>Não possui uma conta? <a href="/signup">Crie uma agora</a>.</p>
   </div>
 </div>
+<script>
+  document.getElementById('login-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Impede o envio do formulário padrão
+  
+  const form = event.target;
+  const formData = new FormData(form);
+  
+  try {
+    const response = await fetch('/login', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      document.getElementById('error-message').innerText = errorMessage;
+      document.getElementById('error-message').style.display = 'block';
+    } else {
+      // Redirecionar para a página de boas-vindas
+      window.location.href = '/welcome';
+    }
+  } catch (error) {
+    console.error('Erro ao processar a solicitação:', error);
+  }
+});
+</script>
 </body>
 </html>

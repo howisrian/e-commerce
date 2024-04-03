@@ -12,21 +12,22 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/login.html');
+  res.sendFile(__dirname + '/front/pages/login.html');
 });
 
 // Servir o arquivo HTML 
 app.get('/login', (req, res) => {
-  res.sendFile(__dirname + '/login.html');
-});
-
-app.get('/welcome', (req, res) => {
-  res.sendFile(__dirname + '/welcome.html');
+  res.sendFile(__dirname + '/front/pages/login.html');
 });
 
 app.get('/signup', (req, res) => {
-  res.sendFile(__dirname + '/signup.html');
+  res.sendFile(__dirname + '/front/pages/signup.html');
 });
+
+app.get('/welcome', (req, res) => {
+  res.sendFile(__dirname + '/front/welcome.html');
+});
+
 
 
 // Rota para processar o formulário de login
