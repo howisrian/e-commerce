@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 3000;
 // Middleware para analisar corpos de solicitação
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/login.html');
+});
+
 // Servir o arquivo HTML 
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + '/login.html');
