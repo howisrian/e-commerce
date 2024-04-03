@@ -3,6 +3,10 @@
     {
       "email": "test@example.com",
       "password": "senha123"
+    },
+    {
+      "email": "riansantos.dev@gmail.com",
+      "password": "$2a$10$m3PRBZJdbL7a9svgCXMU0uW4AvvafxcrMYjXid6HxsVbXUzo50A6W"
     }
   ]
 }
